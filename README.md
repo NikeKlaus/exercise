@@ -10,7 +10,7 @@ Git 不仅仅是个版本控制系统，它也是个内容管理系统(CMS)，�
 
 GitHub 创建仓库并上传项目代码，仓库建好之后，将 main 分支修改为 master，之后一个即可，方便自己代码上传，在 Setting / Developer settings 中
 
-下载 Git ，在本地要上传的的文件夹右键进入 Git 的命令行工具 Git Bash Here
+下载 Git ，在本地要上传的的文件夹右键进入 Git 的命令行工具 Git Bash Here，每次需要先上传代码到本地仓库，提交到本地仓库，关联过情况下，直接上传代码到远程即可
 
 ```bash
 # 输入个人信息，代码提交者
