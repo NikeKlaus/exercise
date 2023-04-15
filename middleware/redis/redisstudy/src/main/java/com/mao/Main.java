@@ -3,7 +3,7 @@ package com.mao;
 /**
  * @author mao
  * @createTime 2023/4/15 20:05
- * @Description: ${DESCRIPTION}
+ * @Description: redisstudy 的 Main 类
  */
 public class Main {
     public static void main(String[] args) {
