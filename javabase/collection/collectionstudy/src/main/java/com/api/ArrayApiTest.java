@@ -21,5 +21,9 @@ public class ArrayApiTest {
         // 队列数组，一维数组中存储的是队列，队列中存储字符
         Deque<Character>[] arrayDeques = new ArrayDeque[10];
 
+        // 创建数组并且排序，打印数组长度的属性
+        int[] nums = new int[10];
+        Arrays.sort(nums);
+        System.out.println(nums.length);
     }
 }

@@ -23,8 +23,10 @@ public class MapApiTest {
             put("o", 3);
             put("u", 4);
         }};
+
         // 获取 map 值集合中的最大值
         Integer maxValue = map.values().stream().max(Integer::compare).get();
+
         // 获取 map 中 values 最大值对应的 key ， values 相同的话选取较小的 key
         map.entrySet().stream().filter(e-> Objects.equals(e.getValue(),maxValue)).min(Map.Entry.comparingByKey()).get().getKey();
 
