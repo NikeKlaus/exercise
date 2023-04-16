@@ -14,9 +14,9 @@ import java.util.Objects;
 public class MapApiTest {
     @Test
     public void map0416(){
-        // 在新建 map 时候初始化 map
+        // 在新建 map 时候初始化 map,需要带上后面的形参，否则爆 无法将 '<>' 用于匿名内部类
         // var map1 = new HashMap<Integer, Integer>(); var 编译参数是 JDK10+ 提出
-        Map<String, Integer> map = new HashMap() {{
+        Map<String, Integer> map = new HashMap<String, Integer>() {{
             put("a", 0);
             put("e", 1);
             put("i", 2);
