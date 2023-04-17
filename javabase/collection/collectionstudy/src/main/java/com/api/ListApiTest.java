@@ -2,10 +2,7 @@ package com.api;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author mao
@@ -31,6 +28,8 @@ public class ListApiTest {
 
         // forEach 快速输出
         list.forEach(System.out::println);
+
+        HashSet<Integer> integers = new HashSet<>();
     }
 
 }
