@@ -3,6 +3,7 @@ package com.api;
 import org.junit.Test;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
 
@@ -29,6 +30,7 @@ public class MapApiTest {
 
         // 获取 map 中 values 最大值对应的 key ， values 相同的话选取较小的 key
         map.entrySet().stream().filter(e-> Objects.equals(e.getValue(),maxValue)).min(Map.Entry.comparingByKey()).get().getKey();
+
 
     }
 }

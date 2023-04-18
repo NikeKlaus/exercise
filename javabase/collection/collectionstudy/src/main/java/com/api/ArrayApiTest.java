@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
+import java.util.List;
 
 /**
  * @author mao
@@ -24,6 +25,9 @@ public class ArrayApiTest {
         // 创建数组并且排序，打印数组长度的属性
         int[] nums = new int[10];
         Arrays.sort(nums);
-        System.out.println(nums.length);
+        int length = nums.length;
+
+
+
     }
 }

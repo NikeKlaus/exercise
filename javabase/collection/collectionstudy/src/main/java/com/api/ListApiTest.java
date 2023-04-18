@@ -27,9 +27,16 @@ public class ListApiTest {
         int arrayMax = Arrays.stream(array).max().getAsInt();
 
         // forEach 快速输出
-        list.forEach(System.out::println);
+        // list.forEach(System.out::println);
 
-        HashSet<Integer> integers = new HashSet<>();
+        List<Integer> listBug = Arrays.asList(1, 2, 3);
+        // listBug.add(3);
+
+        ArrayList<String> removeList = new ArrayList<String>(Arrays.asList("a", "b", "c", "d"));
+        for (int i = 0; i < removeList.size(); i++) {
+            removeList.remove(i);
+        }
+        System.out.println(removeList);
     }
 
 }
