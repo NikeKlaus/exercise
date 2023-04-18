@@ -146,6 +146,58 @@ i = 128此时(byte)i = -128
 i = 129此时(byte)i = -127
 ```
 
+**Integer 的缓存池**
+
+它的默认值用于缓存 -128 - 127 之间的数字，如果有 -128 - 127 之间的数字的话，使用 new Integer 不用创建对象，会直接从缓存池中取，此操作会减少堆中对象的分配，有利于提高程序的运行效率。`
+
+```java
+private static class IntegerCache {
+        static final int low = -128;
+        static final int high;
+        static final Integer cache[];
+
+        static {
+            // high value may be configured by property
+            int h = 127;
+            String integerCacheHighPropValue =
+                sun.misc.VM.getSavedProperty("java.lang.Integer.IntegerCache.high");
+            if (integerCacheHighPropValue != null) {
+                try {
+                    int i = parseInt(integerCacheHighPropValue);
+                    i = Math.max(i, 127);
+                    // Maximum array size is Integer.MAX_VALUE
+                    h = Math.min(i, Integer.MAX_VALUE - (-low) -1);
+                } catch( NumberFormatException nfe) {
+                    // If the property cannot be parsed into an int, ignore it.
+                }
+            }
+            high = h;
+
+            cache = new Integer[(high - low) + 1];
+            int j = low;
+            for(int k = 0; k < cache.length; k++)
+                cache[k] = new Integer(j++);
+
+            // range [-128, 127] must be interned (JLS7 5.1.7)
+            assert IntegerCache.high >= 127;
+        }
+
+        private IntegerCache() {}
+}
+```
+
+例如创建一个 Integer a = 24，其实是调用 Integer 的  valueOf
+
+```java
+    public static Integer valueOf(int i) {
+        if (i >= IntegerCache.low && i <= IntegerCache.high)
+            return IntegerCache.cache[i + (-IntegerCache.low)];
+        return new Integer(i);
+    }
+```
+
+
+
 **byte的取值范围是如何计算出来的？**
 
 Java 中用`补码`来表示二进制数，补码的最高位是符号位，最高位用 0 表示正数，最高位 1 表示负数，正数的补码就是其`本身`，由于最高位是符号位，所以正数表示的就是 0111 1111 ，也就是 127。最大负数就是 1111 1111，这其中会涉及到两个 0 ，一个 +0 ，一个 -0 ，+0 归为正数，也就是 0 ，-0 归为负数，也就是 -128，所以 byte 的范围就是 -128 - 127。
@@ -419,7 +471,7 @@ Arrays.sort(array,(o1,o2)->o1[0] == o2[0] ? o1[1] - o2[1] : o2[0]-o1[0]);
 
 
 
-**一维数组存储的是队列**，队列存储的是字符
+一维数组存储的是队列，队列存储的是字符
 
 ```java
 Deque<Character>[] arr = new ArrayDeque[n];
@@ -503,6 +555,66 @@ map.putIfAbsent(key,value)
 list.forEach(System.out::println);
 ```
 
+**数组 Array 转 ArrayList** 
+
+出现问题：java.lang.UnsupportedOperationException
+
+```java
+List<Integer> listBug = Arrays.asList(1, 2, 3);
+listBug.add(3);
+System.out.println(listBug);
+```
+
+原因是因为在 Array 内部存在着一个内部类，这个内部类是被阉割过的，只有 set、get、contains 等方法，但是没有能够像是 add 这种能够使其内部结构进行改变的方法，因此Arrays 内部的 ArrayList 的大小是固定的。
+
+```java
+private static class ArrayList<E>
+    {
+        private static final long serialVersionUID = -2764017481108945198L;
+        private final E[] a;
+
+        ArrayList(E[] array) {
+            a = Objects.requireNonNull(array);
+        }
+}
+```
+
+将数组 Array 转化为真正的 ArrayList 
+
+```java
+ArrayList<String> arrayList = new ArrayList<String>(Arrays.asList(arr));
+```
+
+**List 中循环删除元素**
+
+```java
+ArrayList<String> removeList = new ArrayList<String>(Arrays.asList("a", "b", "c", "d"));
+for (int i = 0; i < removeList.size(); i++) {
+    removeList.remove(i);
+}
+System.out.println(removeList);
+```
+
+已经将 Array 转化为真正的 ArrayList ，删除元素时候存在，不能全部删除元素问题，原因是因为 List 是动态扩容的，删除的第 i 个元素后 i 增加了，但是集合长度也减少了，最后集合中剩余元素的个数是初始集合长度的一半。
+
+使用 foreach 迭代器删除元素时候出现运行时异常  ConcurrentModificationException，因为使用 ArrayList 中外部 remove 元素，会造成其内部结构和游标的改变。
+
+采用 iterator 进行删除元素，而且 .next() 必须在 .remove() 之前调用。 在 foreach 循环中，编译器会在删除元素的操作后调用 .next()，导致ConcurrentModificationException。
+
+```java
+ArrayList<String> list = new ArrayList<String>(Arrays.asList("a", "b", "c", "d"));
+Iterator<String> iter = list.iterator();
+while (iter.hasNext()) {
+	String s = iter.next();
+ 
+	if (s.equals("a")) {
+		iter.remove();
+	}
+}
+```
+
+
+
 ## static
 
 `static` 关键字表示的概念是 全局的、静态的，用它修饰的变量被称为静态变量，用它修饰的方法叫做静态方法，用它修饰的类叫做静态类，如果修是的是一个内部类那就是静态内部类
@@ -563,8 +675,9 @@ finalize：`Object` 中的一个方法，不推荐使用。设计目的是保证
 
 
 
-原码补码反码
+原码、补码、反码
 ------------------------------------------------------------------------------------------------------------------------
+
 二进制：[0,1]
 
 八进制：[0.7]
@@ -573,8 +686,8 @@ finalize：`Object` 中的一个方法，不推荐使用。设计目的是保证
 
 16进制：[0，F]  -->  A：10、C：12、E：14、F：15
 
-原码、补码、反码
-------------------------------------------------------------------------------------------------------------------------
+
+
 原码：符号位 + 真值的绝对值, 即用第一位表示符号, 其余位表示值
 
 补码：正数的补码就是其本身
