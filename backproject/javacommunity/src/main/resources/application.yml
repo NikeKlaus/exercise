@@ -51,8 +51,8 @@ mybatis-plus:
 
 # chatgpt 代理端口clash
 chatgpt:
-  token: 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
+  token: 1234
   proxy-host: 127.0.0.1
-  proxy-port: 7890
+  proxy-port: 123456
   session-expiration-time: 300
 
