@@ -1,0 +1,5 @@
+com\mao\springclould\DeptProvider_8001.class
+com\mao\springclould\service\DeptService.class
+com\mao\springclould\controller\DeptController.class
+com\mao\springclould\service\Impl\DeptServiceImpl.class
+com\mao\springclould\dao\DeptDao.class
