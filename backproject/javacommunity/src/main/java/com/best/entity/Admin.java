@@ -1,8 +1,11 @@
 package com.best.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+
 import java.io.Serializable;
+import java.util.Date;
 
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import io.swagger.annotations.ApiModel;
@@ -21,18 +24,19 @@ public class Admin implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
+    @TableField("name")
     private String name;
 
+    @TableField("password")
     private String password;
 
+    @TableField("create_time")
+    private Date createTime;
+
+    @TableField("update_time")
+    private Date updateTime;
+
     @TableLogic
+    @TableField("deleted")
     private Integer deleted;
-    @Override
-    public String toString() {
-        return "Admin{" +
-            "id=" + id +
-            ", name=" + name +
-            ", password=" + password +
-        "}";
-    }
 }

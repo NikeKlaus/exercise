@@ -4,12 +4,9 @@ import com.best.entity.Commodity;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
- * <p>
- *  服务类
- * </p>
- *
- * @author coffeemao
- * @since 2023-06-17
+ * @author cctv14
+ * @data 2023/9/4 22:54
+ * @description 商品业务接口
  */
 public interface ICommodityService extends IService<Commodity> {
 

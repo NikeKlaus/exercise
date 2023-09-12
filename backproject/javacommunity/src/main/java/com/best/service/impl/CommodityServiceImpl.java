@@ -7,12 +7,9 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**
- * <p>
- *  服务实现类
- * </p>
- *
- * @author coffeemao
- * @since 2023-06-17
+ * @author cctv14
+ * @data 2023/9/4 22:54
+ * @description 商品业务层实现类
  */
 @Service
 public class CommodityServiceImpl extends ServiceImpl<CommodityMapper, Commodity> implements ICommodityService {

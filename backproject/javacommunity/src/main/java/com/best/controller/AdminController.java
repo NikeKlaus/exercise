@@ -1,47 +1,44 @@
 package com.best.controller;
 
-import com.best.common.R;
+import com.best.common.PageEntity;
+import com.best.common.ResponseData;
 import com.best.entity.Admin;
 import com.best.service.IAdminService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
+import javax.annotation.Resource;
 
 /**
- * @author coffeemao
- * @since 2023-06-05
+ * @author cctv14
+ * @data 2023/9/4 22:54
+ * @description 管理员控制器
  */
 @RestController
 @RequestMapping("/admin")
 @CrossOrigin
 public class AdminController {
 
-    @Autowired
+    @Resource
     private IAdminService iAdminService;
 
-    @GetMapping("/list")
-    public R list(@RequestParam("page") Integer page, @RequestParam("size")Integer size, @RequestParam("name")String name){
-        long count = iAdminService.count();
-        HashMap<String, Object> map = new HashMap<>();
-        map.put("count",count);
-        map.put("data",iAdminService.listPage(page,size,name));
-        return R.success("查询成功",map);
+    @GetMapping("/listPage")
+    public ResponseData<PageEntity<Admin>> listPage(Integer pageNo, Integer pageSize, String name) {
+        return ResponseData.success("查询成功", iAdminService.listPage(pageNo, pageSize, name));
     }
 
     @PostMapping("/update")
-    public R update(@RequestBody Admin admin){
-        return R.success("修改成功",iAdminService.updateById(admin));
+    public ResponseData<Boolean> updateAdmin(@RequestBody Admin admin) {
+        return ResponseData.success("修改成功", iAdminService.updateById(admin));
     }
 
     @PostMapping("/remove")
-    public R remove(@RequestParam("id") Integer id){
-        return R.success("删除成功",iAdminService.removeById(id));
+    public ResponseData<Boolean> removeAdminById(@RequestParam("id") Integer id) {
+        return ResponseData.success("删除成功", iAdminService.removeById(id));
     }
 
     @PostMapping("/save")
-    public R save(@RequestBody Admin admin){
+    public ResponseData<Boolean> saveAdmin(@RequestBody Admin admin) {
         admin.setDeleted(0);
-        return R.success("添加成功",iAdminService.save(admin));
+        return ResponseData.success("添加成功", iAdminService.save(admin));
     }
 }

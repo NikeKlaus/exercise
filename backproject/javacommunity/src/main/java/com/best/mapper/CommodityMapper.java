@@ -4,12 +4,9 @@ import com.best.entity.Commodity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
- * <p>
- *  Mapper 接口
- * </p>
- *
- * @author coffeemao
- * @since 2023-06-17
+ * @author cctv14
+ * @data 2023/9/4 22:54
+ * @description 商品 mapper
  */
 public interface CommodityMapper extends BaseMapper<Commodity> {
 

@@ -5,8 +5,9 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
- * @author coffeemao
- * @since 2023-06-05
+ * @author cctv14
+ * @data 2023/9/4 22:54
+ * @description 管理员 mapper
  */
 @Mapper
 public interface AdminMapper extends BaseMapper<Admin> {

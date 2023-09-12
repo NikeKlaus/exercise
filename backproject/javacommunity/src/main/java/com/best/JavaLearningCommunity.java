@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @MapperScan("com.best.mapper")
-@EnableChatGPT
+//@EnableChatGPT
 public class JavaLearningCommunity {
     public static void main(String[] args) {
         SpringApplication.run(JavaLearningCommunity.class,args);

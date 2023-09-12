@@ -10,9 +10,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
- * @author: maowenxing
- * @date: 2023/6/6
- * MybatisPlusConfig 插件配置
+ * @author cctv14
+ * @data 2023/9/4 22:54
+ * @description MybatisPlusConfig 配置类
  */
 @MapperScan("com.best.mapper")
 @EnableTransactionManagement

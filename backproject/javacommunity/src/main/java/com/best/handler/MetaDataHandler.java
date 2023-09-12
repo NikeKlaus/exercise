@@ -8,9 +8,9 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 
 /**
- * @author: maowenxing
- * @date: 2023/6/6
- * MybatisPlus 修改信息时间配置
+ * @author cctv14
+ * @data 2023/9/4 22:54
+ * @description 时间插入处理器
  */
 @Slf4j
 @Component

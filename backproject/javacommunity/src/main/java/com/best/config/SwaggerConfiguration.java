@@ -1,15 +1,11 @@
 package com.best.config;
 
 import io.swagger.models.auth.In;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.reflect.FieldUtils;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.boot.SpringBootVersion;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -23,12 +19,19 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spi.service.contexts.SecurityContext;
 import springfox.documentation.spring.web.plugins.Docket;
 
+import javax.annotation.Resource;
 import java.lang.reflect.Field;
 import java.util.*;
 
+/**
+ * @author cctv14
+ * @data 2023/9/4 22:54
+ * @description Swagger3.x 配置
+ */
 @EnableOpenApi
 @Configuration
 public class SwaggerConfiguration implements WebMvcConfigurer {
+    @Resource
     private SwaggerProperties swaggerProperties;
 
     public SwaggerConfiguration(SwaggerProperties swaggerProperties) {
@@ -70,7 +73,7 @@ public class SwaggerConfiguration implements WebMvcConfigurer {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder().title(swaggerProperties.getApplicationName() + " Api Doc")
                 .description(swaggerProperties.getApplicationDescription())
-                .contact(new Contact("coffeemao", null, "2750506316@gmail.com"))
+                .contact(new Contact("cctv14", null, "cctv14@gmail.com"))
                 .version("Application Version: " + swaggerProperties.getApplicationVersion() + ", Spring Boot Version: " + SpringBootVersion.getVersion())
                 .build();
     }
@@ -107,7 +110,7 @@ public class SwaggerConfiguration implements WebMvcConfigurer {
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void addInterceptors(InterceptorRegistry registry) {
+    public void addInterceptors(@NotNull InterceptorRegistry registry) {
         try {
             Field registrationsField = FieldUtils.getField(InterceptorRegistry.class, "registrations", true);
             List<InterceptorRegistration> registrations = (List<InterceptorRegistration>) ReflectionUtils.getField(registrationsField, registry);
@@ -124,39 +127,5 @@ public class SwaggerConfiguration implements WebMvcConfigurer {
             e.printStackTrace();
         }
     }
-
-
-
 }
 
-@Component
-@ConfigurationProperties("swagger")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-class SwaggerProperties {
-    /**
-     * 是否开启swagger，生产环境一般关闭，所以这里定义一个变量
-     */
-    private Boolean enable;
-
-    /**
-     * 项目应用名
-     */
-    private String applicationName;
-
-    /**
-     * 项目版本信息
-     */
-    private String applicationVersion;
-
-    /**
-     * 项目描述信息
-     */
-    private String applicationDescription;
-
-    /**
-     * 接口调试地址
-     */
-    private String tryHost;
-}
