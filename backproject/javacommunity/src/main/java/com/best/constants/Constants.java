@@ -10,9 +10,9 @@ public class Constants {
      * 盐值加密算法 用于用户密码的加密
      * DigestUtils.md5DigestAsHex((SALT + updatePasswordRequest.getPassword()).getBytes(StandardCharsets.UTF_8));
      */
-    public static String SALT = "www.cctv14.com";
+    public static final String SALT = "www.cctv14.com";
 
-    public static String STATISTICS_URL = "https://www.toopic.cn/";
+    public static final String STATISTICS_URL = "https://www.toopic.cn/";
 
-    public static String COMMODITY_URL = "https://search.jd.com/Search?keyword=";
+    public static final String COMMODITY_URL = "https://search.jd.com/Search?keyword=";
 }

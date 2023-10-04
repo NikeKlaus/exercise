@@ -25,6 +25,7 @@ import java.util.List;
 @Service
 public class JsoupWebImpl implements JsoupWeb {
 
+    // todo 需要加入模型模块，拆解出来
     @Resource
     private ICommodityService iCommodityService;
 

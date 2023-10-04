@@ -2,9 +2,7 @@ package com.best.controller;
 
 import com.best.common.PageEntity;
 import com.best.common.ResponseData;
-import com.best.entity.Admin;
 import com.best.entity.User;
-import com.best.service.IAdminService;
 import com.best.service.IUserService;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.stereotype.Controller;
@@ -23,7 +21,8 @@ public class UserController {
     private IUserService iUserService;
 
     @GetMapping("/listPage")
-    public ResponseData<PageEntity<User>> listPage(@RequestParam("pageNo") Integer pageNo, @RequestParam("pageSize") Integer pageSize, @RequestParam("username") String username) {
+    public ResponseData<PageEntity<User>> listPage(Integer pageNo, Integer pageSize, String username) {
+//        ResponseData.success(BaseEnum.OK);
         return ResponseData.success("查询成功", iUserService.listPage(pageNo, pageSize, username));
     }
 

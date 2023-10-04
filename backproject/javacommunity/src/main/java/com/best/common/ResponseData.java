@@ -1,6 +1,9 @@
 package com.best.common;
 
+import com.best.constants.ResponseCodeEnum;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
@@ -10,6 +13,8 @@ import java.io.Serializable;
  * @description 提供统一返回接口的类
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class ResponseData<T> implements Serializable {
 
     private int code;
@@ -22,19 +27,34 @@ public class ResponseData<T> implements Serializable {
 
     private Object data;
 
-    public static <T> ResponseData<T> success(String message) {
+    private ResponseCodeEnum baseEnum;
+
+    public ResponseData(ResponseCodeEnum baseEnum) {
+        this.baseEnum = baseEnum;
+    }
+
+    public static <T> ResponseData<T> success(Object data) {
         ResponseData<T> responseData = new ResponseData<>();
         responseData.setCode(200);
-        responseData.setMessage(message);
+        responseData.setMessage("");
         responseData.setSuccess(true);
         responseData.setType("success");
-        responseData.setData(null);
+        responseData.setData(data);
         return responseData;
     }
 
+    public static <T> ResponseData<T> success(ResponseCodeEnum baseEnum) {
+        return new ResponseData<>(baseEnum);
+    }
     public static <T> ResponseData<T> success(String message, Object data) {
-        ResponseData<T> responseData = success(message);
-        responseData.setData(data);
+        ResponseData<T> responseData = success(data);
+        responseData.setMessage(message);
+        return responseData;
+    }
+
+    public static <T> ResponseData<T> success(int code, Object data) {
+        ResponseData<T> responseData = success(data);
+        responseData.setCode(code);
         return responseData;
     }
 

@@ -5,8 +5,10 @@
     <file url="file://$PROJECT_DIR$/collectionstudy" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/collectionstudy/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/collectionstudy/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/redisstudy/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/redisstudy/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/designpatternstudy/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/designpatternstudy/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springbootstudy/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springbootstudy/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/thread/threadstudy" charset="UTF-8" />
@@ -15,5 +17,6 @@
     <file url="file://$PROJECT_DIR$/utilstudy" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/utilstudy/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/utilstudy/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../../downLoad-Package/maven-repo/org/springframework/boot/spring-boot-starter-parent/2.2.6.RELEASE/src/main/resources" charset="UTF-8" />
   </component>
 </project>

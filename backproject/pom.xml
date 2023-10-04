@@ -31,6 +31,8 @@
         <freemarker.version>2.3.31</freemarker.version>
         <jsoup.version>1.10.2</jsoup.version>
         <chatgpt.version>1.1.6</chatgpt.version>
+        <mapstruct.version>1.5.0.Final</mapstruct.version>
+        <processor.version>1.5.0.Final</processor.version>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -66,11 +68,6 @@
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-boot-starter</artifactId>
                 <version>3.0.0</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.xiaoymin</groupId>
-                <artifactId>swagger-bootstrap-ui</artifactId>
-                <version>1.9.6</version>
             </dependency>
             <!--mysql-connector-java-->
             <dependency>
@@ -136,6 +133,16 @@
                 <groupId>io.github.asleepyfish</groupId>
                 <artifactId>chatgpt</artifactId>
                 <version>${chatgpt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct-processor</artifactId>
+                <version>${processor.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
