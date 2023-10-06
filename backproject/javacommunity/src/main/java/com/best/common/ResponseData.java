@@ -27,10 +27,10 @@ public class ResponseData<T> implements Serializable {
 
     private Object data;
 
-    private ResponseCodeEnum baseEnum;
+    private ResponseCodeEnum responseCodeEnum;
 
-    public ResponseData(ResponseCodeEnum baseEnum) {
-        this.baseEnum = baseEnum;
+    public ResponseData(ResponseCodeEnum responseCodeEnum) {
+        this.responseCodeEnum = responseCodeEnum;
     }
 
     public static <T> ResponseData<T> success(Object data) {
@@ -43,9 +43,10 @@ public class ResponseData<T> implements Serializable {
         return responseData;
     }
 
-    public static <T> ResponseData<T> success(ResponseCodeEnum baseEnum) {
-        return new ResponseData<>(baseEnum);
+    public static <T> ResponseData<T> success(ResponseCodeEnum responseCodeEnum) {
+        return new ResponseData<>(responseCodeEnum);
     }
+
     public static <T> ResponseData<T> success(String message, Object data) {
         ResponseData<T> responseData = success(data);
         responseData.setMessage(message);

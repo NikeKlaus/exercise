@@ -22,7 +22,8 @@
     <properties>
         <junit.version>4.12</junit.version>
         <lombok.version>1.18.12</lombok.version>
-        <log4j.version>1.2.17</log4j.version>
+        <!--        <log4j.version>1.2.17</log4j.version>-->
+        <slf4j.version>1.7.25</slf4j.version>
         <druid.version>1.2.5</druid.version>
         <jdbc.version>8.0.25</jdbc.version>
         <devtools.version>2.7.4</devtools.version>
@@ -33,6 +34,7 @@
         <chatgpt.version>1.1.6</chatgpt.version>
         <mapstruct.version>1.5.0.Final</mapstruct.version>
         <processor.version>1.5.0.Final</processor.version>
+        <collection.version>4.1</collection.version>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -93,13 +95,12 @@
                 <artifactId>junit</artifactId>
                 <version>${junit.version}</version>
             </dependency>
-            <!--log4j-->
+            <!--slf4j-->
             <dependency>
-                <groupId>log4j</groupId>
-                <artifactId>log4j</artifactId>
-                <version>${log4j.version}</version>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
             </dependency>
-            <!--日志门面-->
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-core</artifactId>
@@ -134,6 +135,7 @@
                 <artifactId>chatgpt</artifactId>
                 <version>${chatgpt.version}</version>
             </dependency>
+            <!--mapstruct-->
             <dependency>
                 <groupId>org.mapstruct</groupId>
                 <artifactId>mapstruct</artifactId>
@@ -143,6 +145,12 @@
                 <groupId>org.mapstruct</groupId>
                 <artifactId>mapstruct-processor</artifactId>
                 <version>${processor.version}</version>
+            </dependency>
+            <!--commons-collections4-->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>${collection.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

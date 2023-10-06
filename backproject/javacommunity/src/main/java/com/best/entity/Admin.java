@@ -1,15 +1,12 @@
 package com.best.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
-
-import java.io.Serializable;
-import java.util.Date;
-
-import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @author coffeemao
@@ -18,8 +15,6 @@ import lombok.experimental.Accessors;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Accessors(chain = true)
-@ApiModel(value = "Admin对象", description = "管理员实体类")
 @TableName("admin")
 public class Admin implements Serializable {
 
@@ -28,13 +23,13 @@ public class Admin implements Serializable {
     /**
      * 数据库主键自增 id
      */
-    @TableId(value = "id", type = IdType.AUTO)
+    @TableField("id")
     private Integer id;
 
     /**
      * 唯一账号且不可修改
      */
-    @TableField("admin_id")
+    @TableId(value = "admin_id", type = IdType.ASSIGN_ID)
     private String adminId;
 
     /**
@@ -46,13 +41,12 @@ public class Admin implements Serializable {
     @TableField("password")
     private String password;
 
-    @TableField("create_time")
+    @TableField(value = "create_time", fill = FieldFill.INSERT)
     private Date createTime;
 
-    @TableField("update_time")
+    @TableField(value = "update_time", fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;
 
-    @TableLogic
     @TableField("deleted")
     private Integer deleted;
 }

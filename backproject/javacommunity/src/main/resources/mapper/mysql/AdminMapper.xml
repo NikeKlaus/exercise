@@ -17,17 +17,17 @@
     </sql>
     <sql id="Base_Condition_List">
         <where>
-            <if test="adminId != null and adminId != ''">
-                and admin_id = #{adminId},
-            </if>
-            <if test="name != null and name != ''">
-                and `name` = #{name},
+            <if test="id != null and id != ''">
+                admin_id = #{id}
             </if>
             <if test="startTime != null and startTime != ''">
-                and createTime >= #{startTime},
+                and create_time >= #{startTime}
             </if>
             <if test="endTime != null and endTime != ''">
-                and createTime &lt; #{endTime}
+                and create_time &lt; #{endTime}
+            </if>
+            <if test="name != null and name != ''">
+                and `name` like concat('%',#{name},'%')
             </if>
         </where>
     </sql>
@@ -36,10 +36,10 @@
         <foreach collection="list" item="item" separator=";" index="index">
             update admin
             <set>
-                deleted = #{deleted}
+                deleted = 1
             </set>
             <where>
-                admin_id = #{adminId}
+                admin_id = #{item}
             </where>
         </foreach>
     </update>
@@ -47,20 +47,25 @@
         <foreach collection="list" item="item" separator=";" index="index">
             update admin
             <set>
-                name = #{name}, password = #{password}
+                <if test="item.name != null and item.name != ''">
+                    `name` = #{item.name},
+                </if>
+                <if test="item.password != null and item.password != ''">
+                    password = #{item.password}
+                </if>
             </set>
             <where>
-                admin_id = #{adminId}
+                admin_id = #{item.adminId}
             </where>
         </foreach>
     </update>
     <insert id="batchInsertByAdminList">
         insert into admin (<include refid="Base_Column_List"/>) values
         <foreach collection="list" item="item" separator="," index="index">
-            (#{item.adminId}, #{item.name}, #{item.password})
+            (#{item.adminId}, #{item.name}, #{item.password}, #{item.createTime}, #{item.updateTime}, 0)
         </foreach>
     </insert>
-    <select id="aminList" resultType="com.best.entity.Admin">
+    <select id="adminList" resultType="com.best.entity.Admin">
         select
         <include refid="Base_Column_List"/>
         from admin;

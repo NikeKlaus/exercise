@@ -1,7 +1,7 @@
 package com.best.controller;
 
 import com.best.common.ResponseData;
-import io.github.asleepyfish.util.OpenAiUtils;
+import com.best.utils.ChatUtil;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,8 +16,7 @@ import java.util.List;
 @CrossOrigin
 public class ChatController {
     @GetMapping("/talk")
-    public ResponseData<List<String>> list(@RequestParam("question") String question) {
-        List<String> answer = OpenAiUtils.createChatCompletion(question, "admin");
-        return ResponseData.success("ok", answer);
+    public ResponseData<List<String>> getAnswer(@RequestParam("question") String question) {
+        return ResponseData.success("ok", ChatUtil.getAnswer(question));
     }
 }

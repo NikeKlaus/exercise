@@ -1,0 +1,27 @@
+package com.best.controller;
+
+import com.best.common.ResponseData;
+import com.best.utils.ParseWebUtil;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+/**
+ * @author cctv14
+ * @data 2023/9/4 22:54
+ * @description 轮播图控制器
+ */
+@RequestMapping("/")
+@RestController
+@CrossOrigin
+public class IndexController {
+
+
+    @GetMapping("/")
+    public ResponseData<List<String>> getRotation() {
+        return ResponseData.success("解析图片成功", ParseWebUtil.getRotationUrl());
+    }
+}

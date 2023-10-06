@@ -2,7 +2,7 @@ package com.best.controller;
 
 import com.best.common.ResponseData;
 import com.best.entity.Commodity;
-import com.best.service.JsoupWeb;
+import com.best.model.commodity.CommodityManager;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -17,11 +17,12 @@ import java.util.List;
 @RequestMapping("/commodity")
 @CrossOrigin
 public class CommodityController {
+
     @Resource
-    private JsoupWeb jsoupWeb;
+    private CommodityManager commodityManager;
 
     @GetMapping("/query")
     public ResponseData<List<Commodity>> query(@RequestParam("keywords") String keywords) {
-        return ResponseData.success("查询成功", jsoupWeb.getParseCommodity(keywords));
+        return ResponseData.success("查询成功", commodityManager.query(keywords));
     }
 }

@@ -3,6 +3,7 @@ package com.best.constants;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 
 /**
  * @author cctv14

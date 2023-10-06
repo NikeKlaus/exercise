@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="generator.mapper.MenuMapper">
+
+    <resultMap id="BaseResultMap" type="generator.domain.Menu">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="menuId" column="menu_id" jdbcType="VARCHAR"/>
+            <result property="menuName" column="menu_name" jdbcType="VARCHAR"/>
+            <result property="desc" column="desc" jdbcType="VARCHAR"/>
+            <result property="level" column="level" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="sort" column="sort" jdbcType="VARCHAR"/>
+            <result property="hide" column="hide" jdbcType="INTEGER"/>
+            <result property="ctrl" column="ctrl" jdbcType="INTEGER"/>
+            <result property="authHide" column="auth_hide" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,menu_id,menu_name,
+        desc,level,create_time,
+        update_time,sort,hide,
+        ctrl,auth_hide
+    </sql>
+</mapper>

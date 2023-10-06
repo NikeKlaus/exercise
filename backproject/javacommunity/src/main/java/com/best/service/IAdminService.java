@@ -2,7 +2,10 @@ package com.best.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.best.common.PageEntity;
+import com.best.dto.ConditionDTO;
 import com.best.entity.Admin;
+
+import java.util.List;
 
 /**
  * @author cctv14
@@ -10,14 +13,16 @@ import com.best.entity.Admin;
  * @description 管理员业务接口
  */
 public interface IAdminService extends IService<Admin> {
-    /**
-     * 分页查询管理员
-     * @param pageNo 页号
-     * @param pageSize 分页大小
-     * @param name 查询姓名
-     * @return PageEntity
-     */
+
     PageEntity<Admin> listPage(Integer pageNo, Integer pageSize, String name);
 
+    List<Admin> adminList();
 
+    List<Admin> selectAdminByCondition(ConditionDTO conditionDTO);
+
+    boolean batchInsertByAdminList(List<Admin> adminList);
+
+    boolean batchUpdateAdminById(List<Admin> adminList);
+
+    boolean batchDeleteAdminById(List<String> idList);
 }

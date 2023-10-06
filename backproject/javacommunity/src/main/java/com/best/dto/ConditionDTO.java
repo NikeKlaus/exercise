@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 public class ConditionDTO {
 
-    private Integer id;
+    private String id;
 
     private String name;
 

@@ -17,12 +17,12 @@ public interface AdminMapper extends BaseMapper<Admin> {
     /**
      * 查询全部管理员
      */
-    List<Admin> aminList();
+    List<Admin> adminList();
 
     /**
      * 按照条件查询
      */
-    List<Admin> selectAdminByCondition(ConditionDTO condition);
+    List<Admin> selectAdminByCondition(ConditionDTO conditionDTO);
 
     /**
      * 批量插入
@@ -37,5 +37,5 @@ public interface AdminMapper extends BaseMapper<Admin> {
     /**
      * 批量删除
      */
-    boolean batchDeleteAdminById(List<Integer> idList);
+    boolean batchDeleteAdminById(List<String> idList);
 }

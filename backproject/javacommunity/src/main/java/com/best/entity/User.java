@@ -1,15 +1,11 @@
 package com.best.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
 
 import java.io.Serializable;
-import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -19,65 +15,51 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Accessors(chain = true)
-@ApiModel(value = "User对象", description = "用户实体类")
 @TableName("user")
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty("主键ID")
-    @TableId(value = "id", type = IdType.AUTO)
+    @TableField("id")
     private Integer id;
 
-    @ApiModelProperty("用户唯一标识")
-    @TableField("user_id")
+    @TableId(value = "user_id", type = IdType.ASSIGN_ID)
     private String userId;
 
-    @ApiModelProperty("用户名")
     @TableField("username")
     private String username;
 
-    @ApiModelProperty("密码")
     @TableField("password")
     private String password;
 
-    @ApiModelProperty("用户头像")
+    @TableField("user_of_role")
+    private String userOfRole;
+
     @TableField("avatar")
     private String avatar;
 
-    @ApiModelProperty("年龄")
     @TableField("age")
     private Integer age;
 
-    @ApiModelProperty("性别 0 女；1 男")
     @TableField("gender")
     private Integer gender;
 
-    @ApiModelProperty("邮箱")
     @TableField("email")
     private String email;
 
-    @ApiModelProperty("手机号码")
     @TableField("phone")
     private String phone;
 
-    @ApiModelProperty("创建时间")
-    @TableField(value = "gmt_create", fill = FieldFill.INSERT)
-    private Date gmtCreate;
+    @TableField(value = "create_time", fill = FieldFill.INSERT)
+    private Date createTime;
 
-    @ApiModelProperty("修改时间")
-    @TableField(value = "gmt_modified", fill = FieldFill.INSERT_UPDATE)
-    private Date gmtModified;
+    @TableField(value = "update_time", fill = FieldFill.INSERT_UPDATE)
+    private Date updateTime;
 
-    @ApiModelProperty("版本信息")
     @Version
     @TableField("version")
     private Integer version;
 
-    @ApiModelProperty("逻辑删除 0 未删除；1删除")
-    @TableLogic
     @TableField("deleted")
     private Integer deleted;
-
 }
