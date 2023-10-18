@@ -1,9 +1,6 @@
 package com.best.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,6 +11,7 @@ import java.util.Date;
 /**
  * @author coffeemao
  * @since 2023-06-17
+ * @description 商品实体
  */
 @Data
 @AllArgsConstructor
@@ -48,5 +46,6 @@ public class Commodity implements Serializable {
     private Date updateTime;
 
     @TableField("deleted")
+    @TableLogic
     private Integer deleted;
 }

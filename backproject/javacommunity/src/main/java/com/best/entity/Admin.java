@@ -11,6 +11,7 @@ import java.util.Date;
 /**
  * @author coffeemao
  * @since 2023-06-05
+ * @description 管理员实体
  */
 @Data
 @AllArgsConstructor
@@ -48,5 +49,6 @@ public class Admin implements Serializable {
     private Date updateTime;
 
     @TableField("deleted")
+    @TableLogic
     private Integer deleted;
 }

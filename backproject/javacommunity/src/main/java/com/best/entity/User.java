@@ -10,6 +10,7 @@ import java.util.Date;
 
 /**
  * @author coffeemao
+ * @description 用户实体
  * @since 2023-06-05
  */
 @Data
@@ -61,5 +62,6 @@ public class User implements Serializable {
     private Integer version;
 
     @TableField("deleted")
+    @TableLogic
     private Integer deleted;
 }

@@ -2,6 +2,7 @@ package com.best.controller;
 
 import com.best.common.ResponseData;
 import com.best.utils.ParseWebUtil;
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,10 @@ public class IndexController {
 
     @GetMapping("/")
     public ResponseData<List<String>> getRotation() {
-        return ResponseData.success("解析图片成功", ParseWebUtil.getRotationUrl());
+        List<String> urls = ParseWebUtil.getRotationUrl();
+        if (CollectionUtils.isNotEmpty(urls)) {
+            return ResponseData.success("解析图片成功", urls);
+        }
+        return ResponseData.fail("解析图片失败");
     }
 }

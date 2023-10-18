@@ -2,6 +2,7 @@ package com.best.controller;
 
 import com.best.common.ResponseData;
 import com.best.utils.ChatUtil;
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,6 +18,10 @@ import java.util.List;
 public class ChatController {
     @GetMapping("/talk")
     public ResponseData<List<String>> getAnswer(@RequestParam("question") String question) {
-        return ResponseData.success("ok", ChatUtil.getAnswer(question));
+        List<String> answer = ChatUtil.getAnswer(question);
+        if (CollectionUtils.isNotEmpty(answer)) {
+            return ResponseData.success("响应成功", answer);
+        }
+        return ResponseData.fail("响应失败");
     }
 }

@@ -5,7 +5,7 @@ import com.best.common.ResponseData;
 import com.best.model.admin.AdminManager;
 import com.best.vo.AdminVO;
 import com.best.vo.ConditionVO;
-import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -26,31 +26,52 @@ public class AdminController {
 
     @GetMapping("/listPage")
     public ResponseData<PageEntity<AdminVO.ListAdminVO>> listPage(Integer pageNo, Integer pageSize, String name) {
-        return ResponseData.success("分页查询成功", adminManager.listPage(pageNo, pageSize, name));
+        PageEntity<AdminVO.ListAdminVO> result = adminManager.listPage(pageNo, pageSize, name);
+        if (CollectionUtils.isNotEmpty(result.getRecords())) {
+            return ResponseData.success("分页查询成功", result);
+        }
+        return ResponseData.fail("分页查询失败");
     }
 
     @GetMapping("/listAll")
     public ResponseData<List<AdminVO.ListAdminVO>> listAll() {
-        return ResponseData.success("查询全部成功", adminManager.adminList());
+        List<AdminVO.ListAdminVO> admins = adminManager.adminList();
+        if (CollectionUtils.isNotEmpty(admins)) {
+            return ResponseData.success("查询全部成功", admins);
+        }
+        return ResponseData.fail("查询全部失败");
     }
 
     @PostMapping("/condition")
     public ResponseData<List<AdminVO.ListAdminVO>> selectAdminByCondition(@RequestBody ConditionVO conditionVO) {
-        return ResponseData.success("条件查询成功", adminManager.selectAdminByCondition(conditionVO));
+        List<AdminVO.ListAdminVO> admins = adminManager.selectAdminByCondition(conditionVO);
+        if (CollectionUtils.isNotEmpty(admins)) {
+            return ResponseData.success("条件查询成功", admins);
+        }
+        return ResponseData.fail("条件查询失败");
     }
 
     @PostMapping("/update")
     public ResponseData<Boolean> updateAdmin(@RequestBody AdminVO.UpdateAdminInfoVO updateAdminInfoVO) {
-        return ResponseData.success("修改成功", adminManager.updateById(updateAdminInfoVO));
+        if (adminManager.updateById(updateAdminInfoVO)) {
+            return ResponseData.success("修改成功", true);
+        }
+        return ResponseData.fail("修改失败");
     }
 
     @PostMapping("/save")
     public ResponseData<Boolean> saveAdmin(@RequestBody AdminVO.SaveAdminVO saveAdminVO) {
-        return ResponseData.success("添加成功", adminManager.save(saveAdminVO));
+        if (adminManager.save(saveAdminVO)) {
+            return ResponseData.success("添加成功", true);
+        }
+        return ResponseData.fail("添加失败");
     }
 
     @PostMapping("/remove")
     public ResponseData<Boolean> removeAdminById(@RequestParam("adminId") String adminId) {
-        return ResponseData.success("删除成功", adminManager.removeById(adminId));
+        if (adminManager.removeById(adminId)) {
+            return ResponseData.success("删除成功", true);
+        }
+        return ResponseData.fail("删除失败");
     }
 }

@@ -68,36 +68,48 @@
             <option name="tableUIInfoList">
               <list>
                 <TableUIInfo>
-                  <option name="className" value="Auth" />
-                  <option name="tableName" value="auth" />
-                </TableUIInfo>
-                <TableUIInfo>
-                  <option name="className" value="Award" />
-                  <option name="tableName" value="award" />
-                </TableUIInfo>
-                <TableUIInfo>
-                  <option name="className" value="Blog" />
-                  <option name="tableName" value="blog" />
-                </TableUIInfo>
-                <TableUIInfo>
-                  <option name="className" value="Menu" />
-                  <option name="tableName" value="menu" />
-                </TableUIInfo>
-                <TableUIInfo>
-                  <option name="className" value="MenuAuth" />
-                  <option name="tableName" value="menu_auth" />
-                </TableUIInfo>
-                <TableUIInfo>
-                  <option name="className" value="Role" />
-                  <option name="tableName" value="role" />
-                </TableUIInfo>
-                <TableUIInfo>
                   <option name="className" value="UserAward" />
                   <option name="tableName" value="user_award" />
                 </TableUIInfo>
                 <TableUIInfo>
                   <option name="className" value="UserBlog" />
                   <option name="tableName" value="user_blog" />
+                </TableUIInfo>
+                <TableUIInfo>
+                  <option name="className" value="UserCity" />
+                  <option name="tableName" value="user_city" />
+                </TableUIInfo>
+                <TableUIInfo>
+                  <option name="className" value="Route" />
+                  <option name="tableName" value="route" />
+                </TableUIInfo>
+                <TableUIInfo>
+                  <option name="className" value="Role" />
+                  <option name="tableName" value="role" />
+                </TableUIInfo>
+                <TableUIInfo>
+                  <option name="className" value="MenuAuth" />
+                  <option name="tableName" value="menu_auth" />
+                </TableUIInfo>
+                <TableUIInfo>
+                  <option name="className" value="Menu" />
+                  <option name="tableName" value="menu" />
+                </TableUIInfo>
+                <TableUIInfo>
+                  <option name="className" value="Book" />
+                  <option name="tableName" value="book" />
+                </TableUIInfo>
+                <TableUIInfo>
+                  <option name="className" value="Blog" />
+                  <option name="tableName" value="blog" />
+                </TableUIInfo>
+                <TableUIInfo>
+                  <option name="className" value="Award" />
+                  <option name="tableName" value="award" />
+                </TableUIInfo>
+                <TableUIInfo>
+                  <option name="className" value="Auth" />
+                  <option name="tableName" value="auth" />
                 </TableUIInfo>
               </list>
             </option>

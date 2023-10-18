@@ -1,7 +1,7 @@
 package com.best.model.commodity;
 
 import com.best.entity.Commodity;
-import com.best.service.ICommodityService;
+import com.best.service.CommodityService;
 import com.best.utils.ParseWebUtil;
 import com.best.vo.CommodityVO;
 import org.apache.commons.collections4.CollectionUtils;
@@ -20,24 +20,24 @@ import java.util.List;
 public class CommodityManager {
 
     @Resource
-    private ICommodityService iCommodityService;
+    private CommodityService commodityService;
 
     public List<CommodityVO.QueryCommodityVO> query(String keywords) {
-        List<Commodity> commodities = iCommodityService.selectByKeyWords(keywords);
+        List<Commodity> commodities = commodityService.selectByKeyWords(keywords);
         if (CollectionUtils.isEmpty(commodities)) {
             commodities = ParseWebUtil.getParseCommodity(keywords);
-            iCommodityService.saveBatch(commodities);
+            commodityService.saveBatch(commodities);
         }
         return CommodityConvert.INSTANCE.toQueryCommodityVOList(commodities);
     }
 
-    public Boolean insert(CommodityVO.InsertCommodityVO insertCommodityVO) {
+    public boolean insert(CommodityVO.InsertCommodityVO insertCommodityVO) {
         Commodity commodity = CommodityConvert.INSTANCE.toCommodity(insertCommodityVO);
-        return iCommodityService.save(commodity);
+        return commodityService.save(commodity);
     }
 
-    public Boolean updateCommodity(CommodityVO.QueryCommodityVO queryCommodityVO) {
-        List<Commodity> commodities = iCommodityService.listByIds(Collections.singletonList(queryCommodityVO.getCommodityId()));
+    public boolean updateCommodity(CommodityVO.QueryCommodityVO queryCommodityVO) {
+        List<Commodity> commodities = commodityService.listByIds(Collections.singletonList(queryCommodityVO.getCommodityId()));
         if (CollectionUtils.isEmpty(commodities)) {
             return false;
         }
@@ -54,10 +54,10 @@ public class CommodityManager {
         if ("".equals(commodity.getPrice())) {
             commodity.setPrice(null);
         }
-        return iCommodityService.updateById(commodity);
+        return commodityService.updateById(commodity);
     }
 
-    public Boolean removeCommodity(String commodityId) {
-        return iCommodityService.removeById(commodityId);
+    public boolean removeCommodity(String commodityId) {
+        return commodityService.removeById(commodityId);
     }
 }
