@@ -1,5 +1,6 @@
 package com.best.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.best.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -11,6 +12,6 @@ import java.util.List;
  * @description
  */
 @Mapper
-public interface UserMapper {
+public interface UserMapper extends BaseMapper<User> {
     List<User> list();
 }

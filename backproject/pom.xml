@@ -4,11 +4,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.mao</groupId>
+    <groupId>com.best</groupId>
     <artifactId>backproject</artifactId>
     <packaging>pom</packaging>
     <version>1.0</version>
     <modules>
+        <module>javacommunity-center</module>
+        <module>javacommunity-spi</module>
+        <module>javacommunity-service</module>
         <module>javacommunity</module>
     </modules>
     <!--标志是 springboot 的项目-->
@@ -22,7 +25,6 @@
     <properties>
         <junit.version>4.12</junit.version>
         <lombok.version>1.18.12</lombok.version>
-        <!--        <log4j.version>1.2.17</log4j.version>-->
         <slf4j.version>1.7.25</slf4j.version>
         <druid.version>1.2.5</druid.version>
         <jdbc.version>8.0.25</jdbc.version>

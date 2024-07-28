@@ -7,13 +7,46 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="javacommunity-controller-syresource" />
+        <module name="javacommunity-spi-sysresource" />
+        <module name="javacommunity-service-sysconfig-starter" />
+        <module name="javacommunity-controller-sysuser" />
+        <module name="javacommunity-starter" />
+        <module name="javacommunity-service-sysconfig-core" />
+        <module name="javacommunity-sysuser-service-starter" />
+        <module name="javacommunity-sysuser-service-core" />
         <module name="javacommunity" />
+        <module name="javacommunity-spi-sysconfig" />
+        <module name="javacommunity-spi-sysuser" />
+        <module name="javacommunity-service-sysresource-starter" />
+        <module name="javacommunity-service-sysresource-core" />
+        <module name="javacommunity-controller-syscconfig" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="javacommunity" options="-parameters" />
+      <module name="javacommunity-center" options="-parameters" />
+      <module name="javacommunity-controller" options="-parameters" />
+      <module name="javacommunity-controller-syresource" options="-parameters" />
+      <module name="javacommunity-controller-syscconfig" options="-parameters" />
+      <module name="javacommunity-controller-sysuser" options="-parameters" />
+      <module name="javacommunity-service" options="-parameters" />
+      <module name="javacommunity-service-sysconfig" options="-parameters" />
+      <module name="javacommunity-service-sysconfig-core" options="-parameters" />
+      <module name="javacommunity-service-sysconfig-starter" options="-parameters" />
+      <module name="javacommunity-service-sysresource" options="-parameters" />
+      <module name="javacommunity-service-sysresource-core" options="-parameters" />
+      <module name="javacommunity-service-sysresource-starter" options="-parameters" />
+      <module name="javacommunity-service-sysuser" options="-parameters" />
+      <module name="javacommunity-spi" options="-parameters" />
+      <module name="javacommunity-spi-sysconfig" options="-parameters" />
+      <module name="javacommunity-spi-sysresource" options="-parameters" />
+      <module name="javacommunity-spi-sysuser" options="-parameters" />
+      <module name="javacommunity-starter" options="-parameters" />
+      <module name="javacommunity-sysuser-service-core" options="-parameters" />
+      <module name="javacommunity-sysuser-service-starter" options="-parameters" />
     </option>
   </component>
 </project>

@@ -1,6 +1,7 @@
 package com.best.model.commodity;
 
 import com.best.entity.Commodity;
+import com.best.service.convert.CommodityConvert;
 import com.best.vo.CommodityVO;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +9,7 @@ import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-10-08T22:32:43+0800",
+    date = "2024-03-25T22:10:50+0800",
     comments = "version: 1.5.0.Final, compiler: javac, environment: Java 1.8.0_131 (Oracle Corporation)"
 )
 public class CommodityConvertImpl implements CommodityConvert {

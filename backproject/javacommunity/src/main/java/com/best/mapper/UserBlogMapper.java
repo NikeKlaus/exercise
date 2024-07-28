@@ -4,10 +4,9 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.best.entity.UserBlog;
 
 /**
- * @author 86199
- * @description 针对表【user_blog】的数据库操作Mapper
- * @createDate 2023-10-18 22:40:08
- * @Entity com.best.entity.UserBlog
+ * @author cctv14
+ * @data 2023/9/4 22:54
+ * @description 用户博文 mapper
  */
 public interface UserBlogMapper extends BaseMapper<UserBlog> {
 

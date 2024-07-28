@@ -5,7 +5,36 @@
     <file url="file://$PROJECT_DIR$/book" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/book/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/book/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/javacommunity" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javacommunity-center" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javacommunity-center/javacommunity-controller/javacommunity-controller-syresource/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javacommunity-center/javacommunity-controller/javacommunity-controller-syscconfig/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javacommunity-center/javacommunity-controller/javacommunity-controller-sysuser/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javacommunity-center/javacommunity-controller/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javacommunity-center/javacommunity-controller/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javacommunity-center/javacommunity-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javacommunity-center/javacommunity-starter/src/main/resources/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javacommunity-center/javacommunity-starter/src/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javacommunity-center/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javacommunity-center/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javacommunity-service/javacommunity-service-sysconfig/javacommunity-service-sysconfig-core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javacommunity-service/javacommunity-service-sysconfig/javacommunity-service-sysconfig-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javacommunity-service/javacommunity-service-sysconfig/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javacommunity-service/javacommunity-service-sysconfig/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javacommunity-service/javacommunity-service-sysresource/javacommunity-service-sysresource-core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javacommunity-service/javacommunity-service-sysresource/javacommunity-service-sysresource-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javacommunity-service/javacommunity-service-sysresource/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javacommunity-service/javacommunity-service-sysresource/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javacommunity-service/javacommunity-service-sysuser/javacommunity-sysuser-service-core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javacommunity-service/javacommunity-service-sysuser/javacommunity-sysuser-service-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javacommunity-service/javacommunity-service-sysuser/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javacommunity-service/javacommunity-service-sysuser/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javacommunity-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javacommunity-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javacommunity-spi/javacommunity-spi-sysconfig/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javacommunity-spi/javacommunity-spi-sysresource/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javacommunity-spi/javacommunity-spi-sysuser/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javacommunity-spi/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javacommunity-spi/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/javacommunity/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/javase" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />

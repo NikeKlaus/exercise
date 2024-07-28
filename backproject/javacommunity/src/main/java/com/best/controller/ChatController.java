@@ -16,7 +16,7 @@ import java.util.List;
 @RequestMapping("/chat")
 @CrossOrigin
 public class ChatController {
-    @GetMapping("/talk")
+    @GetMapping("/getAnswer")
     public ResponseData<List<String>> getAnswer(@RequestParam("question") String question) {
         List<String> answer = ChatUtil.getAnswer(question);
         if (CollectionUtils.isNotEmpty(answer)) {

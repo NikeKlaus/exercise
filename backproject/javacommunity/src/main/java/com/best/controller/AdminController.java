@@ -2,10 +2,12 @@ package com.best.controller;
 
 import com.best.common.PageEntity;
 import com.best.common.ResponseData;
-import com.best.model.admin.AdminManager;
+import com.best.entity.Admin;
+import com.best.service.AdminService;
 import com.best.vo.AdminVO;
 import com.best.vo.ConditionVO;
 import org.apache.commons.collections4.CollectionUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -22,11 +24,11 @@ import java.util.List;
 public class AdminController {
 
     @Resource
-    private AdminManager adminManager;
+    private AdminService adminService;
 
     @GetMapping("/listPage")
-    public ResponseData<PageEntity<AdminVO.ListAdminVO>> listPage(Integer pageNo, Integer pageSize, String name) {
-        PageEntity<AdminVO.ListAdminVO> result = adminManager.listPage(pageNo, pageSize, name);
+    public ResponseData<PageEntity<AdminVO.AdminInfoVO>> listPage(Integer pageNo, Integer pageSize, String name) {
+        PageEntity<AdminVO.AdminInfoVO> result = adminService.listPage(pageNo, pageSize, name);
         if (CollectionUtils.isNotEmpty(result.getRecords())) {
             return ResponseData.success("分页查询成功", result);
         }
@@ -34,17 +36,17 @@ public class AdminController {
     }
 
     @GetMapping("/listAll")
-    public ResponseData<List<AdminVO.ListAdminVO>> listAll() {
-        List<AdminVO.ListAdminVO> admins = adminManager.adminList();
+    public ResponseData<List<AdminVO.AdminInfoVO>> listAll() {
+        List<AdminVO.AdminInfoVO> admins = adminService.adminList();
         if (CollectionUtils.isNotEmpty(admins)) {
             return ResponseData.success("查询全部成功", admins);
         }
         return ResponseData.fail("查询全部失败");
     }
 
-    @PostMapping("/condition")
-    public ResponseData<List<AdminVO.ListAdminVO>> selectAdminByCondition(@RequestBody ConditionVO conditionVO) {
-        List<AdminVO.ListAdminVO> admins = adminManager.selectAdminByCondition(conditionVO);
+    @PostMapping("/selectByCondition")
+    public ResponseData<List<AdminVO.AdminInfoVO>> selectByCondition(@RequestBody ConditionVO conditionVO) {
+        List<AdminVO.AdminInfoVO> admins = adminService.selectAdminByCondition(conditionVO);
         if (CollectionUtils.isNotEmpty(admins)) {
             return ResponseData.success("条件查询成功", admins);
         }
@@ -52,24 +54,28 @@ public class AdminController {
     }
 
     @PostMapping("/update")
-    public ResponseData<Boolean> updateAdmin(@RequestBody AdminVO.UpdateAdminInfoVO updateAdminInfoVO) {
-        if (adminManager.updateById(updateAdminInfoVO)) {
+    public ResponseData<Boolean> update(@RequestBody AdminVO.UpdateAdminInfoVO updateAdminInfoVO) {
+        Admin admin = new Admin();
+        BeanUtils.copyProperties(updateAdminInfoVO, admin);
+        if (adminService.updateById(admin)) {
             return ResponseData.success("修改成功", true);
         }
         return ResponseData.fail("修改失败");
     }
 
     @PostMapping("/save")
-    public ResponseData<Boolean> saveAdmin(@RequestBody AdminVO.SaveAdminVO saveAdminVO) {
-        if (adminManager.save(saveAdminVO)) {
+    public ResponseData<Boolean> save(@RequestBody AdminVO.SaveAdminVO saveAdminVO) {
+        Admin admin = new Admin();
+        BeanUtils.copyProperties(saveAdminVO, admin);
+        if (adminService.save(admin)) {
             return ResponseData.success("添加成功", true);
         }
         return ResponseData.fail("添加失败");
     }
 
     @PostMapping("/remove")
-    public ResponseData<Boolean> removeAdminById(@RequestParam("adminId") String adminId) {
-        if (adminManager.removeById(adminId)) {
+    public ResponseData<Boolean> remove(@RequestParam("adminId") String adminId) {
+        if (adminService.removeById(adminId)) {
             return ResponseData.success("删除成功", true);
         }
         return ResponseData.fail("删除失败");

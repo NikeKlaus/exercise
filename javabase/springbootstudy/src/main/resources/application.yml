@@ -11,9 +11,12 @@ mybatis:
 
 # spring
 spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
   datasource:
     username: root
     password: 123456
-    url: jdbc:mysql://127.0.0.1:3306/java?serverTimezone=UTC
+    url: jdbc:mysql://127.0.0.1:3306/java?serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource

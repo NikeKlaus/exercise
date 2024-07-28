@@ -1,6 +1,6 @@
 package com.best.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
@@ -18,9 +18,9 @@ public class UserBlog implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "user_id", type = IdType.INPUT)
+    @TableId("user_id")
     private Integer userId;
 
-    @TableId(value = "blog_id", type = IdType.INPUT)
+    @TableField("blog_id")
     private Integer blogId;
 }

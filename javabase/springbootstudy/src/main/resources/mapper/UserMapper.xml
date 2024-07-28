@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.best.mapper.UserMapper">
 
-    <select id="list" resultType="com.best.entity.User">
+    <select id="list" resultType="com.best.entity.com.best.annotation.User">
         select *
         from user;
     </select>

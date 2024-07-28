@@ -13,6 +13,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @MapperScan("com.best.mapper")
 public class ApplicationClient {
     public static void main(String[] args) {
-        SpringApplication.run(ApplicationClient.class,args);
+        SpringApplication.run(ApplicationClient.class, args);
     }
 }

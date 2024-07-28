@@ -26,6 +26,8 @@ spring:
     name: java_learning_community
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
+  profiles:
+    active: dev
 
 # swagger
 springfox:
@@ -46,7 +48,6 @@ mybatis-plus:
     db-config:
       logic-delete-value: 1
       logic-not-delete-value: 0
-#      logic-delete-field: deleted
 
 # chatgpt 代理端口
 chatgpt:

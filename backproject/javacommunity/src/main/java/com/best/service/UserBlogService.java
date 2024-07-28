@@ -4,9 +4,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.best.entity.UserBlog;
 
 /**
- * @author 86199
- * @description 针对表【user_blog】的数据库操作Service
- * @createDate 2023-10-18 22:40:08
+ * @author cctv14
+ * @data 2023/9/4 22:54
+ * @description 用户博文业务接口
  */
 public interface UserBlogService extends IService<UserBlog> {
 

@@ -1,8 +1,8 @@
 package com.best.controller;
 
 import com.best.common.ResponseData;
-import com.best.model.user.UserManager;
-import com.best.vo.UserVO;
+import com.best.entity.User;
+import com.best.service.UserService;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,11 +19,11 @@ import java.util.List;
 @CrossOrigin
 public class UserController {
     @Resource
-    private UserManager userManager;
+    private UserService userService;
 
     @GetMapping("/listAll")
-    public ResponseData<List<UserVO.ListUserVO>> listAll() {
-        List<UserVO.ListUserVO> users = userManager.listAll();
+    public ResponseData<List<User>> listAll() {
+        List<User> users = userService.list(null);
         if (CollectionUtils.isNotEmpty(users)) {
             return ResponseData.success("查询全部用户成功", users);
         }
@@ -31,24 +31,24 @@ public class UserController {
     }
 
     @PostMapping("/save")
-    public ResponseData<Boolean> saveUser(@RequestBody UserVO.SaveUserVO saveUserVO) {
-        if (userManager.saveUser(saveUserVO)) {
+    public ResponseData<Boolean> save(@RequestBody User user) {
+        if (userService.save(user)) {
             return ResponseData.success("插入用户成功", true);
         }
         return ResponseData.fail("插入用户失败");
     }
 
     @PostMapping("/update")
-    public ResponseData<Boolean> updateUser(@RequestBody UserVO.UpdateUserVO updateUserVO) {
-        if (userManager.updateUser(updateUserVO)) {
+    public ResponseData<Boolean> update(@RequestBody User user) {
+        if (userService.updateById(user)) {
             return ResponseData.success("修改用户成功", true);
         }
         return ResponseData.fail("修改用户失败");
     }
 
     @PostMapping("/remove")
-    public ResponseData<Boolean> removeUserById(@RequestParam("userId") String userId) {
-        if (userManager.removeUserById(userId)) {
+    public ResponseData<Boolean> remove(@RequestParam("userId") String userId) {
+        if (userService.removeById(userId)) {
             return ResponseData.success("删除用户成功", true);
         }
         return ResponseData.fail("删除用户失败");

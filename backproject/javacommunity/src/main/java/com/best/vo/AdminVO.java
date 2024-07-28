@@ -18,8 +18,8 @@ public class AdminVO {
     @AllArgsConstructor
     @NoArgsConstructor
     @Accessors(chain = true)
-    @ApiModel(value = "ListAdminVO", description = "查询管理员列表VO")
-    public static class ListAdminVO {
+    @ApiModel(value = "AdminInfoVO", description = "查询管理员列表VO")
+    public static class AdminInfoVO {
 
         @ApiModelProperty("管理员唯一ID")
         private String adminId;

@@ -7,10 +7,10 @@ import com.best.service.BookService;
 import org.springframework.stereotype.Service;
 
 /**
-* @author 86199
-* @description 针对表【book】的数据库操作Service实现
-* @createDate 2023-10-18 22:40:08
-*/
+ * @author cctv14
+ * @data 2023/9/4 22:54
+ * @description 书籍业务实现类
+ */
 @Service
 public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements BookService {
 

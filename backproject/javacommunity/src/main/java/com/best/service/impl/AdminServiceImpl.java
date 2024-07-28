@@ -1,18 +1,19 @@
 package com.best.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.best.common.PageEntity;
 import com.best.dto.ConditionDTO;
 import com.best.entity.Admin;
 import com.best.mapper.AdminMapper;
+import com.best.model.admin.AdminManager;
 import com.best.service.AdminService;
+import com.best.service.convert.AdminConvert;
+import com.best.vo.AdminVO;
+import com.best.vo.ConditionVO;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * @author cctv14
@@ -23,46 +24,25 @@ import java.util.Objects;
 public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements AdminService {
 
     @Resource
-    private AdminMapper adminMapper;
+    private AdminManager adminManager;
 
     @Override
-    public PageEntity<Admin> listPage(Integer pageNo, Integer pageSize, String name) {
-        QueryWrapper<Admin> queryWrapper = new QueryWrapper<>();
-        queryWrapper.lambda().like(Objects.nonNull(name), Admin::getName, name);
-        if (Objects.isNull(pageNo) || pageNo < 1) {
-            pageNo = 1;
-        }
-        if (Objects.isNull(pageSize)) {
-            pageSize = -1;
-        }
-        Page<Admin> page = new Page<>(pageNo, pageSize);
-        Page<Admin> adminPage = adminMapper.selectPage(page, queryWrapper);
-        List<Admin> records = adminPage.getRecords();
-        return new PageEntity<>(pageNo, pageSize, records, (long) records.size());
+    public PageEntity<AdminVO.AdminInfoVO> listPage(Integer pageNo, Integer pageSize, String name) {
+        PageEntity<Admin> adminPageEntity = adminManager.listPage(pageNo, pageSize, name);
+        return AdminConvert.INSTANCE.toAdminListVOList(adminPageEntity);
     }
 
     @Override
-    public List<Admin> adminList() {
-        return adminMapper.adminList();
+    public List<AdminVO.AdminInfoVO> adminList() {
+        List<Admin> admins = adminManager.adminList();
+        return AdminConvert.INSTANCE.toAdminListVOList(admins);
     }
 
     @Override
-    public List<Admin> selectAdminByCondition(ConditionDTO conditionDTO) {
-        return adminMapper.selectAdminByCondition(conditionDTO);
+    public List<AdminVO.AdminInfoVO> selectAdminByCondition(ConditionVO conditionVO) {
+        ConditionDTO conditionDTO = AdminConvert.INSTANCE.toConditionDTO(conditionVO);
+        List<Admin> adminList = adminManager.selectAdminByCondition(conditionDTO);
+        return AdminConvert.INSTANCE.toAdminListVOList(adminList);
     }
 
-    @Override
-    public boolean batchInsertByAdminList(List<Admin> adminList) {
-        return adminMapper.batchInsertByAdminList(adminList);
-    }
-
-    @Override
-    public boolean batchUpdateAdminById(List<Admin> adminList) {
-        return adminMapper.batchUpdateAdminById(adminList);
-    }
-
-    @Override
-    public boolean batchDeleteAdminById(List<String> idList) {
-        return adminMapper.batchDeleteAdminById(idList);
-    }
 }

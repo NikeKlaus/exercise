@@ -15,13 +15,11 @@ import java.util.List;
  * @data 2023/9/4 22:54
  * @description 轮播图控制器
  */
-@RequestMapping("/")
+@RequestMapping("/index")
 @RestController
 @CrossOrigin
 public class IndexController {
-
-
-    @GetMapping("/")
+    @GetMapping("/getRotation")
     public ResponseData<List<String>> getRotation() {
         List<String> urls = ParseWebUtil.getRotationUrl();
         if (CollectionUtils.isNotEmpty(urls)) {

@@ -16,9 +16,8 @@ import java.util.List;
  */
 @Service
 public class CommodityServiceImpl extends ServiceImpl<CommodityMapper, Commodity> implements CommodityService {
-
     @Override
-    public List<Commodity> selectByKeyWords(String keywords) {
+    public List<Commodity> listByKeywords(String keywords) {
         QueryWrapper<Commodity> queryWrapper = new QueryWrapper<>();
         queryWrapper.lambda().like(Commodity::getTitle, keywords);
         return list(queryWrapper);

@@ -3,6 +3,7 @@ package com.best.model.admin;
 import com.best.common.PageEntity;
 import com.best.dto.ConditionDTO;
 import com.best.entity.Admin;
+import com.best.service.convert.AdminConvert;
 import com.best.vo.AdminVO;
 import com.best.vo.ConditionVO;
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-10-08T22:32:43+0800",
+    date = "2024-03-25T22:10:50+0800",
     comments = "version: 1.5.0.Final, compiler: javac, environment: Java 1.8.0_131 (Oracle Corporation)"
 )
 public class AdminConvertImpl implements AdminConvert {

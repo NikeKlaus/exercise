@@ -1,5 +1,6 @@
 package com.best.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.best.entity.User;
 import com.best.mapper.UserMapper;
 import com.best.service.UserService;
@@ -14,7 +15,7 @@ import java.util.List;
  * @description
  */
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 
     @Resource
     private UserMapper userMapper;

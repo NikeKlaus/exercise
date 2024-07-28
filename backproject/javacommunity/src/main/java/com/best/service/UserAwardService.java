@@ -4,9 +4,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.best.entity.UserAward;
 
 /**
- * @author 86199
- * @description 针对表【user_award】的数据库操作Service
- * @createDate 2023-10-18 22:40:08
+ * @author cctv14
+ * @data 2023/9/4 22:54
+ * @description 用户荣誉业务接口
  */
 public interface UserAwardService extends IService<UserAward> {
 

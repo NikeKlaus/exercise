@@ -17,10 +17,10 @@ public class UserAward implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "user_id", type = IdType.INPUT)
+    @TableId("user_id")
     private Integer userId;
 
-    @TableId(value = "user_id", type = IdType.INPUT)
+    @TableField("award_id")
     private Integer awardId;
     /**
      * 获奖时间

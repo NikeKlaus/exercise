@@ -1,7 +1,7 @@
 package com.best.mapper;
 
-import com.best.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.best.entity.User;
 
 /**
  * @author cctv14
