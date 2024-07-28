@@ -13,6 +13,7 @@ import java.util.Date;
  * @author coffeemao
  * @since 2023-06-05
  */
+@Data
 public class AdminVO {
     @Data
     @AllArgsConstructor

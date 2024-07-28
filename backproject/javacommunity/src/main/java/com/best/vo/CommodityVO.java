@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
  * @data 2023/10/5 22:25
  * @description
  */
+@Data
 public class CommodityVO {
 
     /**
